@@ -9,6 +9,7 @@
                     ['label' => 'Meta', 'icon' => 'fas fa-newspaper', 'url' => ['/admin/meta']],
                     ['label' => 'Menu', 'icon' => 'fas fa-feather', 'url' => ['/admin/menu']],
                     ['label' => 'Blocks', 'icon' => 'fas fa-address-card', 'url' => ['/admin/blocks']],
+                    ['label' => 'Events', 'icon' => 'fas fa-address-card', 'url' => ['/admin/events']],
                     /*
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
