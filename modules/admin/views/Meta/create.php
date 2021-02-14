@@ -3,13 +3,13 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\News */
+/* @var $model app\models\Meta */
 
-$this->title = 'Create News';
-$this->params['breadcrumbs'][] = ['label' => 'News', 'url' => ['index']];
+$this->title = 'Create Meta';
+$this->params['breadcrumbs'][] = ['label' => 'Metas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="news-create">
+<div class="meta-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
