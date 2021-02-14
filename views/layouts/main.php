@@ -9,6 +9,24 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use app\models\Blocks;
+use app\models\Menu;
+
+$text_blocks = Blocks::find()->all();
+foreach ($text_blocks as $text_block) {
+    if ($text_block['key'] == "top_text") {
+        $top_text = $text_block;
+    }
+
+    if ($text_block['key'] == "social_block_main") {
+        $social_block = $text_block['text_block_'.Yii::$app->language];
+    }
+}
+
+
+
+$menus = Menu::find()->orderBy(['position' => SORT_ASC])->all();
+
 
 AppAsset::register($this);
 ?>
@@ -33,7 +51,7 @@ AppAsset::register($this);
     <!-- Author Meta -->
     <meta name="author" content="lamplab.kz">
     <!-- Meta Description -->
-    <meta name="description" content="Centre for Research & Graduate Education - Main page" />
+    <meta name="description" content="Centre for Research & Graduate Education" />
     <!-- Meta character set -->
     <meta charset="utf-8">
     <!-- Meta Keyword -->
@@ -54,7 +72,7 @@ AppAsset::register($this);
     <section>
         <div class="header">
             <div class="logo"><img @click="goTo('index')" style="max-height: 132px;" src="img/crge-min.png" title="CRGE" alt="CRGE" /></div>
-            <div class="title">Centre for Research & Graduate Education</div>
+            <div class="title"><?= $top_text['text_block_'.Yii::$app->language] ?></div>
             <div class="logo"><img @click="goTo('dkuen')" style="max-height: 132px;" src="img/dku-min.png" title="DKU" alt="DKU" /></div>
         </div>
     </section>
@@ -63,46 +81,21 @@ AppAsset::register($this);
         <section>
             <nav>
                 <ul class="desktop-menu">
+                    <?php foreach ($menus as $menu): ?>
                     <li>
-                        <a class="menu-active" href="index.html" title="">Main</a>
+                        <a class="menu-active" href="<?= $menu['link_'.Yii::$app->language] ?>" title=""><?= $menu['name_'.Yii::$app->language] ?></a>
                     </li>
-                    <li>
-                        <a href="academic_improvement.html" title="">Academic Improvement</a>
-                    </li>
-                    <li>
-                        <a href="social_science_colloquium.html" title="">Social Science Colloquium</a>
-                    </li>
-                    <li>
-                        <a href="dku_fellows.html" title="">DKU Fellows</a>
-                    </li>
-                    <li>
-                        <a href="occasional_papers.html" title="">Occasional Papers</a>
-                    </li>
-                    <li>
-                        <a href="contacts.html" title="">Contacts</a>
-                    </li>
+                    <?php endforeach; ?>
+
                 </ul>
 
                 <ul v-if="mobileMenu" class="mobile-menu" :class="{'display' : mobileMenu}">
                     <div @click="mobileMenu = false" class="close"></div>
-                    <li>
-                        <a class="menu-active" href="index.html" title="">Main</a>
-                    </li>
-                    <li>
-                        <a href="academic_improvement.html" title="">Academic Improvement</a>
-                    </li>
-                    <li>
-                        <a href="social_science_colloquium.html" title="">Social Science Colloquium</a>
-                    </li>
-                    <li>
-                        <a href="dku_fellows.html" title="">DKU Fellows</a>
-                    </li>
-                    <li>
-                        <a href="occasional_papers.html" title="">Occasional Papers</a>
-                    </li>
-                    <li>
-                        <a href="contacts.html" title="">Contacts</a>
-                    </li>
+                    <?php foreach ($menus as $menu): ?>
+                        <li>
+                            <a class="menu-active" href="<?= $menu['link_'.Yii::$app->language] ?>" title=""><?= $menu['name_'.Yii::$app->language] ?></a>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
 
 
@@ -125,18 +118,7 @@ AppAsset::register($this);
     <div class="ribbon red-ribbon">
         <section class="flex">
             <div class="social-block">
-                <span>We are in Social Networks:</span>
-                <div class="social-box">
-                    <a>
-                        <img style="max-height: 34px;" src="img/facebook.svg" title="Facebook" alt="Facebook" />
-                    </a>
-                    <a>
-                        <img style="max-height: 34px;" src="img/youtube.svg" title="YouTube" alt="YouTube" />
-                    </a>
-                    <a>
-                        <img style="max-height: 34px;" src="img/instagram.svg" title="Instagram" alt="Instagram" />
-                    </a>
-                </div>
+                <?= $social_block ?>
             </div>
             <div class="sign-up-block">
                 <span>SIGN UP FOR OUR UPDATES</span>
