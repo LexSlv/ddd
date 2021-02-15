@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
+use app\models\Blocks;
 use app\models\ContactForm;
 
 class SiteController extends Controller
@@ -61,7 +62,28 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $blocksModel = Blocks::find()->all();
+        $lang = Yii::$app->language;
+        foreach ($blocksModel as $block) {
+            if($block['key'] === "main_text_block"){
+                $blocksArr['main_text_block'] = $block['text_block_'.$lang];
+            }
+
+            if($block['key'] === "forthcoming_and_most_recent_events"){
+                $blocksArr['forthcoming_and_most_recent_events'] = $block['text_block_'.$lang];
+            }
+
+            if($block['key'] === "information_block_main"){
+                $blocksArr['information_block_main'] = $block['text_block_'.$lang];
+            }
+
+        }
+
+
+
+        return $this->render('index', [
+            'text_blocks' => $blocksArr
+        ]);
     }
 
     /**
