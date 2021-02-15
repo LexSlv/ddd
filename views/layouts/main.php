@@ -11,6 +11,7 @@ use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\models\Blocks;
 use app\models\Menu;
+use app\models\Meta;
 
 $text_blocks = Blocks::find()->all();
 foreach ($text_blocks as $text_block) {
@@ -21,12 +22,32 @@ foreach ($text_blocks as $text_block) {
     if ($text_block['key'] == "social_block_main") {
         $social_block = $text_block['text_block_'.Yii::$app->language];
     }
+
+    if ($text_block['key'] == "SIGN_UP_FOR_OUR_UPDATES_MAIN") {
+        $sign_up_for_our_updates_main = $text_block['text_block_'.Yii::$app->language];
+    }
+
+    if ($text_block['key'] == "sign_up_main") {
+        $sign_up_main = $text_block['text_block_'.Yii::$app->language];
+    }
+
+    if ($text_block['key'] == "footer_main") {
+        $footer_main = $text_block['text_block_'.Yii::$app->language];
+    }
+
+    if ($text_block['key'] == "footer") {
+        $footer = $text_block['text_block_'.Yii::$app->language];
+    }
+
 }
 
 
-
+$action_id = Yii::$app->controller->action->id;
+$meta = Meta::find()->where(['action_name' => $action_id])->one();
 $menus = Menu::find()->orderBy(['position' => SORT_ASC])->all();
 
+
+$this->title = $this->title = $meta['page_title_'.Yii::$app->language];
 
 AppAsset::register($this);
 ?>
@@ -115,53 +136,26 @@ AppAsset::register($this);
 <?= $content ?>
 
 <footer id="footer">
+    <?php if (Yii::$app->controller->action->id === "index"): ?>
     <div class="ribbon red-ribbon">
         <section class="flex">
             <div class="social-block">
                 <?= $social_block ?>
             </div>
             <div class="sign-up-block">
-                <span>SIGN UP FOR OUR UPDATES</span>
+                <span><?= $sign_up_for_our_updates_main ?></span>
                 <div class="sign-up-box">
                     <input v-model="mailbox" name="sign-up">
-                    <button @click="sendData">sign up</button>
+                    <button @click="sendData"><?= $sign_up_main ?></button>
                 </div>
             </div>
         </section>
     </div>
-    <div class="ribbon gray-ribbon">
-        <section class="flex">
-            <div class="gray-ribbon-title">Contact:</div>
-            <div class="gray-ribbon-title">Find us on the Map:</div>
-        </section>
-    </div>
-    <div class="map-block">
-        <section class="contacts-grid">
-            <div class="contacts" @click="goToContacts">
-                <span>A0M0E7, Almaty, Kazakhstan</span>
-                <span>Nazarbayev av., 173, room 302</span>
-                <span>Tel. +7 727 355 0551 (ex. 241)</span>
-                <span>crge-info@dku.kz</span>
-            </div>
-            <div class="map">
-                <div id="map" class="map-size"></div>
-            </div>
-            <div class="partner">
-                <img src="img/daad-min.png" title="DAAD" alt="DAAD" />
-            </div>
-        </section>
-    </div>
-    <div class="ribbon gray-ribbon">
-        <section class="flex footer-block">
-            <div style="text-transform: uppercase;">© 2020 Centre for Research & Graduate Education </div>
-            <a class="hide-in-mobile" style="text-decoration: none;" href="https://lamplab.kz" title="Создано в lampLAB" target="_blank">
-                <div class="lamplab">
-                    <div class="create">Создано в lampLAB </div>
-                    <img src="img/ll.svg" class="icon-style" alt="Создано в lampLAB" title="Создано в lampLAB">
-                </div>
-            </a>
-        </section>
-    </div>
+    <?= $footer_main ?>
+    <?php endif; ?>
+
+    <?= $footer ?>
+
 
 </footer>
 
