@@ -13,6 +13,8 @@ use app\models\Blocks;
 use app\models\Menu;
 use app\models\Meta;
 
+
+
 $text_blocks = Blocks::find()->all();
 foreach ($text_blocks as $text_block) {
     if ($text_block['key'] == "top_text") {
@@ -42,8 +44,8 @@ foreach ($text_blocks as $text_block) {
 }
 
 
-$action_id = Yii::$app->controller->action->id;
-$meta = Meta::find()->where(['action_name' => $action_id])->one();
+$controller_id = Yii::$app->controller->id;
+$meta = Meta::find()->where(['action_name' => $controller_id])->one();
 $menus = Menu::find()->orderBy(['position' => SORT_ASC])->all();
 
 
@@ -64,9 +66,9 @@ AppAsset::register($this);
     <meta name="viewport" content="width=400px, initial-scale=1">
 
     <!-- Favicon-->
-    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
 
     <meta name="theme-color" content="#ffffff">
     <!-- Author Meta -->
@@ -84,7 +86,7 @@ AppAsset::register($this);
     CSS
     ============================================= -->
     <script src="js/vue.js"></script>
-    <link rel="stylesheet" href="css/style.css" /
+    <link rel="stylesheet" href="/css/style.css" /
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -92,9 +94,9 @@ AppAsset::register($this);
 <header id="header">
     <section>
         <div class="header">
-            <div class="logo"><img @click="goTo('index')" style="max-height: 132px;" src="img/crge-min.png" title="CRGE" alt="CRGE" /></div>
+            <div class="logo"><img @click="goTo('index')" style="max-height: 132px;" src="/img/crge-min.png" title="CRGE" alt="CRGE" /></div>
             <div class="title"><?= $top_text['text_block_'.Yii::$app->language] ?></div>
-            <div class="logo"><img @click="goTo('dkuen')" style="max-height: 132px;" src="img/dku-min.png" title="DKU" alt="DKU" /></div>
+            <div class="logo"><img @click="goTo('dkuen')" style="max-height: 132px;" src="/img/dku-min.png" title="DKU" alt="DKU" /></div>
         </div>
     </section>
 
@@ -123,7 +125,7 @@ AppAsset::register($this);
                 <div class="nav-block">
                     <div @click="mobileMenu = true" class="hamburger"></div>
                     <div class="search">
-                        <img src="img/search.svg" alt="Поиск" title="Поиск">
+                        <img src="/img/search.svg" alt="Поиск" title="Поиск">
                     </div>
                     <div class="lang">EN RU</div>
                 </div>
@@ -136,7 +138,7 @@ AppAsset::register($this);
 <?= $content ?>
 
 <footer id="footer">
-    <?php if (Yii::$app->controller->action->id === "index"): ?>
+    <?php if (Yii::$app->controller->id === "site"): ?>
     <div class="ribbon red-ribbon">
         <section class="flex">
             <div class="social-block">
@@ -163,7 +165,7 @@ AppAsset::register($this);
 </body>
 
 
-<script src="js/vue-carousel.min.js"></script>
+<script src="/js/vue-carousel.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
 <script>
     const mob = new Vue({
@@ -293,12 +295,6 @@ AppAsset::register($this);
         DG.marker([43.244172, 76.947719]).addTo(map).bindPopup('Centre for Research & Graduate Education');
     });
 </script>
-
-
-
-
-
-
 
 </html>
 <?php $this->endPage() ?>
