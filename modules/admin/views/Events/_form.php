@@ -21,21 +21,11 @@ use kartik\date\DatePicker;
 
     <?= $form->field($model, 'subtitle_en')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'event_date')->textInput(['maxlength' => true]) ?>
 
-    <?php
-    echo '<label>event_date</label>';
-    echo DatePicker::widget([
-    'name' => 'event_datee',
-    'value' => date('d-M-Y', strtotime('+2 days')),
-    'options' => ['placeholder' => 'Select issue date ...'],
-    'pluginOptions' => [
-    'format' => 'dd-M-yyyy',
-    'todayHighlight' => true
-    ]
-    ]);
-    ?>
 
-    <br>
+
+    <hr>
 
     <?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
 
