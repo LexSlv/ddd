@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\Blocks;
+use app\models\Events;
 use app\models\ContactForm;
 
 class SiteController extends Controller
@@ -79,6 +80,7 @@ class SiteController extends Controller
 
         }
 
+        $s_events = Events::find()->where(['show_in_slider' => 1])->all();
 
 
         return $this->render('index', [

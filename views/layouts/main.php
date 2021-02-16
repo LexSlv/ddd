@@ -12,8 +12,11 @@ use app\assets\AppAsset;
 use app\models\Blocks;
 use app\models\Menu;
 use app\models\Meta;
+use app\models\Events;
 
 
+$s_events = Events::find()->where(['show_in_slider' => 1])->all();
+$lang = Yii::$app->language;
 
 $text_blocks = Blocks::find()->all();
 foreach ($text_blocks as $text_block) {
@@ -227,45 +230,21 @@ AppAsset::register($this);
         computed: {
             sliders() {
                 return [
+                    <?php foreach ($s_events as $s_event): ?>
                     `<div class="slide-box">
-							<a href="academic_improvement.html" class="page-block-event">
-
+							<a href="/academic-improvement" class="page-block-event">
 								<div class="event-title">
-									<strong>Project proposal writing, Part 2</strong><br>(russ «Написание проектной заявки»)
+									<strong><?= $s_event['title_'.$lang] ?></strong><br>
 								</div>
-								<div class="event-description">Webinar</div>
+								<div class="event-description"><?= $s_event['subtitle_'.$lang] ?></div>
 
 								<div class="flex event-details">
-									<div class="event-author">Guljamal Issaeva</div>
-									<div class="event-date">February 26, 2021</div>
+									<div class="event-author"><?= $s_event['author'] ?></div>
+									<div class="event-date"><?= $s_event['event_date'] ?></div>
 								</div>
-
 							</a>
 					</div>`,
-                    `<div class="slide-box">
-						<a href="academic_improvement.html" class="page-block-event">
-				      		<div class="event-title"><strong>Writing Policy Papers</strong>, Webinar (in cooperation with the Friedrich Ebert Foundation Kazakhstan) </div>
-
-				      		<div class="event-description">Webinar </div>
-
-				      		<div class="flex event-details">
-					      		<div class="event-author">Edward Lemon</div>
-					      		<div class="event-date">27 November and 05 December 2020</div>
-				      		</div>
-			      		</a>
-		    		</div>`,
-                    `<div class="slide-box">
-						<a href="academic_improvement.html" class="page-block-event">
-		    				<div class="event-title"><strong>Basics of Academic Writing</strong>, Webinar</div>
-
-			      			<div class="event-description">Talk for MA Students of the Ecosystems, Society and Economics of the Region of Aral (ESERA) Project</div>
-
-			      			<div class="flex event-details">
-				      			<div class="event-author">Sebastian Mayer</div>
-				      			<div class="event-date">30 July 2020</div>
-			      			</div>
-		    			</a>
-		    		</div>`
+                    <?php endforeach; ?>
                 ]
             }
         },
