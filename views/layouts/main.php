@@ -130,7 +130,10 @@ AppAsset::register($this);
                     <div class="search">
                         <img src="/img/search.svg" alt="Поиск" title="Поиск">
                     </div>
-                    <div class="lang">EN RU</div>
+                    <div class="lang">
+                        <a href="/en">EN</a>
+                        <a href="/ru">RU</a>
+                    </div>
                 </div>
             </nav>
         </section>
