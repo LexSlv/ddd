@@ -13,25 +13,7 @@ class AcademicImprovementController extends \yii\web\Controller
         $blocksModel = Blocks::find()->all();
         $lang = Yii::$app->language;
         foreach ($blocksModel as $block) {
-            if($block['key'] === "academic_improvement_title"){
-                $blocksArr['academic_improvement_title'] = $block['text_block_'.$lang];
-            }
-
-            if($block['key'] === "forthcoming_events"){
-                $blocksArr['forthcoming_events'] = $block['text_block_'.$lang];
-            }
-
-            if($block['key'] === "most_recent_events"){
-                $blocksArr['most_recent_events'] = $block['text_block_'.$lang];
-            }
-
-            if($block['key'] === "academic_improvement_block"){
-                $blocksArr['academic_improvement_block'] = $block['text_block_'.$lang];
-            }
-
-            if($block['key'] === "academic_improvement_pdf"){
-                $blocksArr['academic_improvement_pdf'] = $block['text_block_'.$lang];
-            }
+            $blocksArr[$block['key']] = $block['text_block_'.$lang];
         }
 
         $f_events = Events::find()->where(['forthcoming' => 1])->all();

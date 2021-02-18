@@ -66,18 +66,7 @@ class SiteController extends Controller
         $blocksModel = Blocks::find()->all();
         $lang = Yii::$app->language;
         foreach ($blocksModel as $block) {
-            if($block['key'] === "main_text_block"){
-                $blocksArr['main_text_block'] = $block['text_block_'.$lang];
-            }
-
-            if($block['key'] === "forthcoming_and_most_recent_events"){
-                $blocksArr['forthcoming_and_most_recent_events'] = $block['text_block_'.$lang];
-            }
-
-            if($block['key'] === "information_block_main"){
-                $blocksArr['information_block_main'] = $block['text_block_'.$lang];
-            }
-
+            $blocksArr[$block['key']] = $block['text_block_'.$lang];
         }
 
         $s_events = Events::find()->where(['show_in_slider' => 1])->all();
