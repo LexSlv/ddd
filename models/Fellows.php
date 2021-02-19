@@ -34,6 +34,7 @@ class Fellows extends \yii\db\ActiveRecord
             [['name', 'whois', 'research_interests', 'fellowship_period', 'email', 'photo_url'], 'required'],
             [['name', 'whois', 'fellowship_period', 'email', 'photo_url'], 'string', 'max' => 255],
             [['research_interests'], 'string', 'max' => 500],
+            [['senior'], 'integer'],
         ];
     }
 

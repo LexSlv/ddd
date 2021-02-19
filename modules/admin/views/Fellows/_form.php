@@ -24,6 +24,12 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'photo_url')->textInput(['maxlength' => true]) ?>
 
+    <br>
+    <small>По умолчанию junior</small>
+    <br>
+    <?= $form->field($model, 'senior')->checkbox() ?>
+
+
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

@@ -25,10 +25,10 @@
         <div class="archives-block shadow">
             <table class="archives-table" cellspacing="0" border="1" cellpadding="5">
                 <tr>
-                    <th>Year</th>
-                    <th>Semester</th>
-                    <th>Date of publication</th>
-                    <th>Action</th>
+                    <th><?= $text_blocks['Year'] ?></th>
+                    <th><?= $text_blocks['Semester'] ?></th>
+                    <th><?= $text_blocks['Date_of_publication'] ?></th>
+                    <th><?= $text_blocks['Action'] ?></th>
                 </tr>
                 <tr>
                     <td>2021</td>

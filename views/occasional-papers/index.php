@@ -1,7 +1,7 @@
 <main id="app">
     <div class="ribbon red-ribbon top-page-ribbon white">
         <section>
-            <h2>Occasional Papers</h2>
+            <h2><?= $text_blocks['occasional_papers'] ?></h2>
         </section>
     </div>
     <div class="ribbon blue-ribbon middle-ribbon"></div>
@@ -19,7 +19,7 @@
             </p>
         </div>
         <div class="page-block occasional-block shadow">
-            <h4>Latest Occasional Paper</h4>
+            <h4><?= $text_blocks['latest_occasional_paper'] ?></h4>
             <div class="occasional-box">
                 <p>
 
@@ -46,13 +46,13 @@
             </div>
         </div>
         <div class="archives-block shadow">
-            <div class="archives-title flex white">Archive</div>
+            <div class="archives-title flex white"><?= $text_blocks['Archive'] ?></div>
             <table class="archives-table" cellspacing="0" border="1" cellpadding="5">
                 <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Date of publication</th>
-                    <th>Action</th>
+                    <th><?= $text_blocks['Title'] ?></th>
+                    <th><?= $text_blocks['Author'] ?></th>
+                    <th><?= $text_blocks['Date_of_publication'] ?></th>
+                    <th><?= $text_blocks['Action'] ?></th>
                 </tr>
                 <tr>
                     <td style="text-align: left;"><strong>Peace in Central Asia in the Early 21. Century</strong><br /><small>Conditions for Success in an Era of Change</small></td>
