@@ -17,6 +17,8 @@
                     ['label' => 'Таблица с pdf - 1', 'icon' => 'fas fa-address-card', 'url' => ['/admin/ssc']],
                     ['label' => 'Таблица с pdf - 2', 'icon' => 'fas fa-address-card', 'url' => ['/admin/archive']],
 
+                    ['label' => 'Документы', 'icon' => 'fas fa-address-card', 'url' => ['/admin/docs']],
+
 
                     ['label' => 'Sign up', 'icon' => 'fas fa-address-card', 'url' => ['/admin/signup']],
                     /*

@@ -106,6 +106,10 @@ class ArchiveController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
+        return $this->render('update', [
+            'model' => $model,
+        ]);
+
     }
 
     /**
