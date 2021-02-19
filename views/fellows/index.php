@@ -121,16 +121,13 @@
             },
             sliders() {
                 return [
+                    <?php foreach ($slider as $slide): ?>
                     `<div class="slide-box">
-			          	<div class="slide-pic fellows">
-			          		<img src="/img/img2.png" title="fun" />
+			          	<div class="slide-pic">
+			          		<img src="<?= $slide['image_url']?>" title="fun" />
 			          	</div>
 					</div>`,
-                    `<div class="slide-box">
-			          	<div class="slide-pic fellows">
-			          		<img src="/img/img1.jpg" title="fun" />
-			          	</div>
-					</div>`,
+                    <?php endforeach; ?>
                 ]
             }
         },

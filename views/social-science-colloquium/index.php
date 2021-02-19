@@ -75,16 +75,13 @@
         computed: {
             sliders() {
                 return [
+                    <?php foreach ($slider as $slide): ?>
                     `<div class="slide-box">
 			          	<div class="slide-pic">
-			          		<img src="/img/img2.png" title="fun" />
+			          		<img src="<?= $slide['image_url']?>" title="fun" />
 			          	</div>
 					</div>`,
-                    `<div class="slide-box">
-			          	<div class="slide-pic">
-			          		<img src="/img/img1.jpg" title="fun" />
-			          	</div>
-					</div>`,
+                    <?php endforeach; ?>
                 ]
             }
         },

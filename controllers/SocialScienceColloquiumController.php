@@ -4,16 +4,18 @@ namespace app\controllers;
 use Yii;
 use app\models\Blocks;
 use app\models\Pages;
+use app\models\Slider1;
 
 
 class SocialScienceColloquiumController extends \yii\web\Controller
 {
     public function actionIndex()
     {
-
         $blocksModel = Blocks::find()->all();
         $PagesModel = Pages::find()->all();
+        $slider = Slider1::find()->all();
         $lang = Yii::$app->language;
+
         foreach ($blocksModel as $block) {
             $blocksArr[$block['key']] = $block['text_block_'.$lang];
         }
@@ -24,7 +26,8 @@ class SocialScienceColloquiumController extends \yii\web\Controller
 
         return $this->render('index', [
             'text_blocks' => $blocksArr,
-            'pages' => $PagesArr
+            'pages' => $PagesArr,
+            'slider' => $slider
         ]);
     }
 

@@ -5,6 +5,7 @@ use Yii;
 use app\models\Blocks;
 use app\models\Pages;
 use app\models\Fellows;
+use app\models\Slider2;
 
 
 class FellowsController extends \yii\web\Controller
@@ -13,6 +14,7 @@ class FellowsController extends \yii\web\Controller
     {
         $blocksModel = Blocks::find()->all();
         $PagesModel = Pages::find()->all();
+        $slider = Slider2::find()->all();
 
         $s_fellows = Fellows::find()->where(['senior' => 1])->all();
         $j_fellows = Fellows::find()->where(['senior' => 0])->all();
@@ -30,7 +32,8 @@ class FellowsController extends \yii\web\Controller
             'text_blocks' => $blocksArr,
             'pages' => $PagesArr,
             's_fellows' => $s_fellows,
-            'j_fellows' => $j_fellows
+            'j_fellows' => $j_fellows,
+            'slider' => $slider
         ]);
     }
 

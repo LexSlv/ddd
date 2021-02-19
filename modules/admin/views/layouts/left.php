@@ -12,6 +12,8 @@
                     ['label' => 'Blocks', 'icon' => 'fas fa-address-card', 'url' => ['/admin/blocks']],
                     ['label' => 'Events', 'icon' => 'fas fa-address-card', 'url' => ['/admin/events']],
                     ['label' => 'Fellows', 'icon' => 'fas fa-address-card', 'url' => ['/admin/fellows']],
+                    ['label' => 'Slider-1', 'icon' => 'fas fa-address-card', 'url' => ['/admin/slider1']],
+                    ['label' => 'Slider-2', 'icon' => 'fas fa-address-card', 'url' => ['/admin/slider2']],
                     /*
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
