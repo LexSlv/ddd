@@ -19,31 +19,8 @@ $s_events = Events::find()->where(['show_in_slider' => 1])->all();
 $lang = Yii::$app->language;
 
 $text_blocks = Blocks::find()->all();
-foreach ($text_blocks as $text_block) {
-    if ($text_block['key'] == "top_text") {
-        $top_text = $text_block;
-    }
-
-    if ($text_block['key'] == "social_block_main") {
-        $social_block = $text_block['text_block_'.Yii::$app->language];
-    }
-
-    if ($text_block['key'] == "SIGN_UP_FOR_OUR_UPDATES_MAIN") {
-        $sign_up_for_our_updates_main = $text_block['text_block_'.Yii::$app->language];
-    }
-
-    if ($text_block['key'] == "sign_up_main") {
-        $sign_up_main = $text_block['text_block_'.Yii::$app->language];
-    }
-
-    if ($text_block['key'] == "footer_main") {
-        $footer_main = $text_block['text_block_'.Yii::$app->language];
-    }
-
-    if ($text_block['key'] == "footer") {
-        $footer = $text_block['text_block_'.Yii::$app->language];
-    }
-
+foreach ($text_blocks as $block) {
+    $blocks[$block['key']] = $block['text_block_'.$lang];
 }
 
 
@@ -98,7 +75,7 @@ AppAsset::register($this);
     <section>
         <div class="header">
             <div class="logo"><img @click="goTo('index')" style="max-height: 132px;" src="/img/crge-min.png" title="CRGE" alt="CRGE" /></div>
-            <div class="title"><?= $top_text['text_block_'.Yii::$app->language] ?></div>
+            <div class="title"><?= $blocks['top_text'] ?></div>
             <div class="logo"><img @click="goTo('dkuen')" style="max-height: 132px;" src="/img/dku-min.png" title="DKU" alt="DKU" /></div>
         </div>
     </section>
@@ -148,36 +125,34 @@ AppAsset::register($this);
     <div class="ribbon red-ribbon">
         <section class="flex">
             <div class="social-block">
-                <?= $social_block ?>
+                <span><?= $blocks['we_are_in_social_networks'] ?>:</span>
+                <?= $blocks['social_block_main'] ?>
             </div>
             <div class="sign-up-block">
-                <span><?= $sign_up_for_our_updates_main ?></span>
+                <span><?= $blocks['sign_up_for_our_updates_main'] ?></span>
                 <div class="sign-up-box">
                     <input v-model="mailbox" name="sign-up">
-                    <button @click="sendData"><?= $sign_up_main ?></button>
+                    <button @click="sendData"><?= $blocks['sign_up_main'] ?></button>
                 </div>
             </div>
         </section>
     </div>
     <div class="ribbon gray-ribbon">
         <section class="flex">
-            <div class="gray-ribbon-title">Contacts:</div>
-            <div class="gray-ribbon-title">Find us on the Map:</div>
+            <div class="gray-ribbon-title"><?=  $blocks['Contacts'] ?>:</div>
+            <div class="gray-ribbon-title"><?=  $blocks['find_us_on_the_map'] ?>:</div>
         </section>
     </div>
     <div class="map-block">
         <section class="contacts-grid">
             <div class="contacts" @click="goToContacts">
-                <span>A0M0E7, Almaty, Kazakhstan</span>
-                <span>Nazarbayev av., 173, room 302</span>
-                <span>Tel. +7 727 355 0551 (ex. 241)</span>
-                <span>crge-info@dku.kz</span>
+                <?= $blocks['address_info'] ?>
             </div>
             <div class="map">
                 <div id="map" class="map-size"></div>
             </div>
             <div class="partner">
-                <img src="img/daad-min.png" title="DAAD" alt="DAAD" />
+                <img src="/img/daad-min.png" title="DAAD" alt="DAAD" />
             </div>
         </section>
     </div>

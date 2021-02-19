@@ -1,7 +1,7 @@
 <main id="app">
     <div class="ribbon blue-ribbon top-page-ribbon white">
         <section>
-            <h2>Contacts</h2>
+            <h2><?= $text_blocks['Contacts'] ?>:</h2>
         </section>
     </div>
     <div class="ribbon red-ribbon middle-ribbon"></div>
@@ -11,51 +11,68 @@
         <div class="contacts-block shadow">
             <div class="contacts-box">
                 <div>
-                    <h4>Address:</h4>
-                    <span>A0M0E7, Almaty, Kazakhstan</span>
-                    <span>Nazarbayev av., 173, room 302</span>
-                    <span>Open Hours: 09.00-18.00</span>
-                    <span>Tel. +7 727 355 0551 (ex. 241)</span>
-                    <span>crge-info@dku.kz</span>
+                    <h4><?= $text_blocks['Address'] ?>:</h4>
+                    <?= $text_blocks['address_info'] ?>
                 </div>
                 <div>
-                    <h4>Head of CRGE:</h4>
-                    <span>Dr. Sebastian Mayer</span>
-                    <span>DAAD Associate Professor</span>
-                    <span>of International Relations &</span>
-                    <span>Associate Researcher, InIIS</span>
-                    <span>University of Bremen, Germany</span>
+                    <h4><?= $text_blocks['head_of_crge'] ?>:</h4>
+                    <?= $text_blocks['head_of_crge_info'] ?>
                 </div>
                 <div>
-                    <h4>Social Networks:</h4>
+                    <h4><?= $text_blocks['social_networks'] ?>:</h4>
                     <div class="contacts-social-box">
-                        <a>
-                            <img style="max-height: 34px;" src="/img/facebook.svg" title="Facebook" alt="Facebook" />
-                        </a>
-                        <a>
-                            <img style="max-height: 34px;" src="/img/youtube.svg" title="YouTube" alt="YouTube" />
-                        </a>
-                        <a>
-                            <img style="max-height: 34px;" src="/img/instagram.svg" title="Instagram" alt="Instagram" />
-                        </a>
+                        <?= $text_blocks['social_block_main'] ?>
                     </div>
                 </div>
             </div>
 
-
-
-
-
             <div class="contacts-map-block">
-                <h4>We're on the Map</h4>
+                <h4><?= $text_blocks['we_on_the_map'] ?></h4>
                 <div class="contacts-map">
                     <div id="map" class="contacts-map-size"></div>
                 </div>
 
             </div>
 
-
-
         </div>
     </section>
 </main>
+
+
+<script src="/js/vue.js"></script>
+<script>
+    const mob = new Vue({
+        el: '#header',
+        data () {
+            return {
+                mobileMenu: false
+            }
+        },
+        methods:{
+            goTo(val) {
+                if (val === 'dkuen') window.location.href = 'https://dku.kz/en/'
+                if (val === 'index') window.location.href = 'index.html'
+            }
+        }
+    })
+    const vm = new Vue({
+        el: '#app',
+        data () {
+            return {
+            }
+        }
+    })
+</script>
+<script src="/js/loader.js"></script>
+<script type="text/javascript">
+    var map;
+
+    DG.then(function () {
+        map = DG.map('map', {
+            center: [43.244172, 76.947719],
+            zoom: 18
+        });
+
+        DG.marker([43.244172, 76.947719]).addTo(map).bindPopup('Centre for Research & Graduate Education');
+    });
+</script>
