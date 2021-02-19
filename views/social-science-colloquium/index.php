@@ -30,18 +30,14 @@
                     <th><?= $text_blocks['Date_of_publication'] ?></th>
                     <th><?= $text_blocks['Action'] ?></th>
                 </tr>
+                <?php foreach ($pdfs as $pdf): ?>
                 <tr>
-                    <td>2021</td>
-                    <td>Summer Semester</td>
-                    <td></td>
-                    <td></td>
+                    <td><?= $pdf['year'] ?></td>
+                    <td><?= $pdf['semester'] ?></td>
+                    <td><?= $pdf['date_of_publication'] ?></td>
+                    <td><a target="_blank" href="<?= $pdf['pdf'] ?>"><span>Read online</span> / Download</a></td>
                 </tr>
-                <tr>
-                    <td>2020</td>
-                    <td>Winter Semester</td>
-                    <td>August 2021</td>
-                    <td><a target="_blank" href="static/2020.pdf"><span>Read online</span> / Download</a></td>
-                </tr>
+                <?php endforeach; ?>
             </table>
         </div>
     </section>

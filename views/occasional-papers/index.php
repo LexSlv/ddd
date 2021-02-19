@@ -25,10 +25,12 @@
                     <th><?= $text_blocks['Action'] ?></th>
                 </tr>
                 <tr>
-                    <td style="text-align: left;"><strong>Peace in Central Asia in the Early 21. Century</strong><br /><small>Conditions for Success in an Era of Change</small></td>
-                    <td><strong>Peter Smith</strong></td>
-                    <td>August 2020, Almaty</td>
-                    <td><a><span>Read online</span> / Download</a></td>
+                    <?php foreach ($pdfs as $pdf): ?>
+                    <td style="text-align: left;"><strong><?= $pdf['title'] ?></strong><br /><small><?= $pdf['sub_title'] ?></small></td>
+                    <td><strong><?= $pdf['author'] ?></strong></td>
+                    <td><?= $pdf['date_of_publication'] ?></td>
+                    <td><a target="_blank" href="<?= $pdf['pdf'] ?>"><span>Read online</span> / Download</a></td>
+                    <?php endforeach; ?>
                 </tr>
             </table>
         </div>

@@ -5,6 +5,7 @@ use Yii;
 use app\models\Blocks;
 use app\models\Pages;
 use app\models\Slider1;
+use app\models\Ssc;
 
 
 class SocialScienceColloquiumController extends \yii\web\Controller
@@ -13,6 +14,7 @@ class SocialScienceColloquiumController extends \yii\web\Controller
     {
         $blocksModel = Blocks::find()->all();
         $PagesModel = Pages::find()->all();
+        $pdfs = Ssc::find()->orderBy(['year' => SORT_DESC])->all();
         $slider = Slider1::find()->all();
         $lang = Yii::$app->language;
 
@@ -27,7 +29,8 @@ class SocialScienceColloquiumController extends \yii\web\Controller
         return $this->render('index', [
             'text_blocks' => $blocksArr,
             'pages' => $PagesArr,
-            'slider' => $slider
+            'slider' => $slider,
+            'pdfs' => $pdfs
         ]);
     }
 
