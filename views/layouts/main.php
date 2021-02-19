@@ -159,7 +159,28 @@ AppAsset::register($this);
             </div>
         </section>
     </div>
-    <?= $footer_main ?>
+    <div class="ribbon gray-ribbon">
+        <section class="flex">
+            <div class="gray-ribbon-title">Contacts:</div>
+            <div class="gray-ribbon-title">Find us on the Map:</div>
+        </section>
+    </div>
+    <div class="map-block">
+        <section class="contacts-grid">
+            <div class="contacts" @click="goToContacts">
+                <span>A0M0E7, Almaty, Kazakhstan</span>
+                <span>Nazarbayev av., 173, room 302</span>
+                <span>Tel. +7 727 355 0551 (ex. 241)</span>
+                <span>crge-info@dku.kz</span>
+            </div>
+            <div class="map">
+                <div id="map" class="map-size"></div>
+            </div>
+            <div class="partner">
+                <img src="img/daad-min.png" title="DAAD" alt="DAAD" />
+            </div>
+        </section>
+    </div>
     <?php endif; ?>
 
     <?= $footer ?>

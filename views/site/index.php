@@ -8,7 +8,7 @@
     <section class="main-section">
         <div class="main-block shadow">
             <p>
-                <?= $text_blocks['main_text_block'] ?>
+                <?= $pages['main'] ?>
             </p>
         </div>
         <div class="events-block">

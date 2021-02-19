@@ -4,50 +4,24 @@
 <main id="app">
     <div class="ribbon blue-ribbon top-page-ribbon white">
         <section>
-            <h2>DKU Fellows</h2>
+            <h2><?= $text_blocks['DKU_fellows'] ?></h2>
         </section>
     </div>
     <div class="ribbon yellow-ribbon middle-ribbon"></div>
     <section class="main-section">
         <div class="page-box shadow">
             <div class="page-box-text">
-                <p>
-                    Under its DKU Fellows Program, the DKU provides the opportunity for researchers from other universities to come to Almaty as visiting researchers to enrich the DKU community. They may conduct own research and/or collaborate with DKU faculty in an area of common interest. To be eligible, you must have a research theme related to DKU expertise.
-                </p>
-                <p>
-                    The DKU Fellows Program is divided into two categories: Junior Fellows at least enrolled in an MA program; and Senior Fellows having obtained a doctorate. The possible duration of researcher stays is between two weeks and six months. During their stay, DKU Fellows will be provided a dedicated working space with internet access and printer. One desktop computer with a large 26” monitor is also available in the Fellows room. Fellows are entitled to use DKU research facilities, including its library and on-line library resources (JSTOR, Web of Science, Science Direct, Scopus…).
-                </p>
-                <p>
-                    DKU Fellowships are generally unpaid. Yet depending on funding availability, we may award Fellows subject-specific allowances. Note: Unless stated below on this page, there are currently no funds available for this purpose! You may generally apply for a DAAD short-term scholarship (“Kurzzeitdozentur”) to get funding for a stay as DKU Fellow, stretching from four weeks up to six months.
-                </p>
-                <p>
-                    We expect Fellows hosted for four weeks or more to prepare an article for one of our research outlets (DKU Occasional Papers or CAJWR) during their stay - and to give one speech in the DKU Talks series, provided that the stay arises during the semester.
-                </p>
-            </div>
-            <div class="fellows-img"></div>
-            <div class="procedure-box">
-                <h3 class="white">Application Procedure:</h3>
-                <div class="procedure-block">
-                    <p>
-                        We encourage interested prospective DKU Fellows to commence the application process early in advance, in no case later than six months prior to the proposed visit. The following materials are to accompany the application:
-                    </p>
-                    <ul>
-                        <li>cover letter indicating your applicable status (junior or senior), the proposed visit duration and dates and the DKU faculty to which the research is related: Economic Sciences, Engineering Economics or Social and Political Sciences. In case you plan to stay four weeks or more, please, also propose the title of your talk as well as the title of your paper and the DKU outlet for its further publication: DKU Occasional Papers or CAJWR;</li>
-                        <li>curriculum vitae;</li>
-                        <li>brief description and implementation plan for the proposed research project, including a statement explaining why DKU presents an appropriate setting for the work (all in English and altogether no more than three pages).</li>
-                    </ul>
-                    <span>Please, send your full application in one PDF file to <a>crge-fellows@dku.kz</a></span>
-                </div>
+            <?= $pages['fellows'] ?>
             </div>
         </div>
         <div class="page-box">
             <div class="slider-block shadow">
-                <h3>DKU Senior Fellows</h3>
+                <h3><?= $text_blocks['dku_senior_fellows'] ?></h3>
                 <carousel :data="seniorSlider" :controls="true"></carousel>
             </div>
             <div class="space20"></div>
             <div class="slider-block shadow">
-                <h3>DKU Junior Fellows</h3>
+                <h3><?= $text_blocks['dku_junior_fellows'] ?></h3>
                 <carousel :data="juniorSlider" :controls="true"></carousel>
             </div>
             <div class="page-box-block slider-block shadow">

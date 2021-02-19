@@ -13,13 +13,7 @@ $lang = Yii::$app->language;
     <div class="ribbon yellow-ribbon middle-ribbon"></div>
     <section class="main-section">
         <div class="page-block shadow">
-            <?= $text_blocks['academic_improvement_block'] ?>
-            <div class="download-form">
-                <div class="pdf-icon">
-                    <img height="48px" src="/img/pdf.png" />
-                </div>
-                <?= $text_blocks['academic_improvement_pdf'] ?>
-            </div>
+            <?= $pages['academic_improvement'] ?>
         </div>
         <div class="page-block shadow">
             <h3><?= $text_blocks['forthcoming_events'] ?></h3>

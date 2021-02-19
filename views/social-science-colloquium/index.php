@@ -10,7 +10,7 @@
     <div class="ribbon blue-ribbon middle-ribbon"></div>
     <section class="main-section">
         <div class="page-block shadow">
-        <?= $text_blocks['social_science_colloquium_block'] ?>
+        <?= $pages['social_science_colloquium'] ?>
         </div>
         <div class="page-box">
             <div class="page-box-block information-block shadow">

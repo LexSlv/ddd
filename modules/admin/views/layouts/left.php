@@ -8,6 +8,7 @@
                     //['label' => 'Menu:', 'options' => ['class' => 'header']],
                     ['label' => 'Meta', 'icon' => 'fas fa-newspaper', 'url' => ['/admin/meta']],
                     ['label' => 'Menu', 'icon' => 'fas fa-feather', 'url' => ['/admin/menu']],
+                    ['label' => 'Pages', 'icon' => 'fas fa-address-card', 'url' => ['/admin/pages']],
                     ['label' => 'Blocks', 'icon' => 'fas fa-address-card', 'url' => ['/admin/blocks']],
                     ['label' => 'Events', 'icon' => 'fas fa-address-card', 'url' => ['/admin/events']],
                     ['label' => 'Fellows', 'icon' => 'fas fa-address-card', 'url' => ['/admin/fellows']],

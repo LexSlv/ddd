@@ -21,10 +21,28 @@ use kartik\date\DatePicker;
 
     <?= $form->field($model, 'subtitle_en')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'event_date')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'event_date')->textInput([
+            'maxlength' => true,
+            'placeholder' => "2020-01-01 - вводить в таком формате!"
+    ]) ?>
 
 
+    <!--
+    <?php
 
+    echo DatePicker::widget([
+        'name' => 'event_date',
+        'value' => date('Y-m-d'),
+        'options' => ['placeholder' => 'Select issue date ...'],
+        'pluginOptions' => [
+            'format' => 'yyyy-mm-dd',
+            'todayHighlight' => true
+        ]
+    ]);
+
+    ?>
+    -->
     <hr>
 
     <?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
