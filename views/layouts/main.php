@@ -86,7 +86,20 @@ AppAsset::register($this);
                 <ul class="desktop-menu">
                     <?php foreach ($menus as $menu): ?>
                     <li>
-                        <a class="menu-active" href="<?= $menu['link_'.Yii::$app->language] ?>" title=""><?= $menu['name_'.Yii::$app->language] ?></a>
+                        <?php
+                        $action_name = Yii::$app->controller->id;
+                        if (Yii::$app->controller->id == "site") {
+                            $action_name = "";
+                        }
+
+                        if ("/".$action_name === $menu['link_'.Yii::$app->language]) {
+                            $menu_class = "menu-active";
+                        } else {
+                            $menu_class = "";
+                        }
+
+                        ?>
+                        <a class="<?= $menu_class ?>"  href="<?= $menu['link_'.Yii::$app->language] ?>" title=""><?= $menu['name_'.Yii::$app->language] ?></a>
                     </li>
                     <?php endforeach; ?>
 
@@ -131,8 +144,12 @@ AppAsset::register($this);
             <div class="sign-up-block">
                 <span><?= $blocks['sign_up_for_our_updates_main'] ?></span>
                 <div class="sign-up-box">
-                    <input v-model="mailbox" name="sign-up">
-                    <button @click="sendData"><?= $blocks['sign_up_main'] ?></button>
+
+                    <?= Html::beginForm(['/subscribe'], 'post') ?>
+                    <input name="email">
+                    <button ><?= $blocks['sign_up_main'] ?></button>
+                    <?= Html::endForm() ?>
+
                 </div>
             </div>
         </section>

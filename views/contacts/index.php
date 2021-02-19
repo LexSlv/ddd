@@ -1,7 +1,7 @@
 <main id="app">
     <div class="ribbon blue-ribbon top-page-ribbon white">
         <section>
-            <h2><?= $text_blocks['Contacts'] ?>:</h2>
+            <h2><?= $text_blocks['Contacts'] ?></h2>
         </section>
     </div>
     <div class="ribbon red-ribbon middle-ribbon"></div>

@@ -13,14 +13,14 @@ class AcademicImprovementController extends \yii\web\Controller
 
         $blocksModel = Blocks::find()->all();
         $PagesModel = Pages::find()->all();
+
         $lang = Yii::$app->language;
+        foreach ($PagesModel as $page) {
+            $PagesArr[$page['page_name']] = $page['text_'.$lang];
+        }
 
         foreach ($blocksModel as $block) {
             $blocksArr[$block['key']] = $block['text_block_'.$lang];
-        }
-
-        foreach ($PagesModel as $page) {
-            $PagesArr[$page['page_name']] = $page['text_'.$lang];
         }
 
         $f_events = Events::find()->where(['forthcoming' => 1])->orderBy(['event_date' => SORT_DESC])->all();
