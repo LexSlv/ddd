@@ -20,6 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
+
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -30,8 +31,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'year',
             'semester:ntext',
             'date_of_publication',
-            'pdf',
-
+            [
+                'attribute' => 'pdf',
+                'format' => 'html',
+                'label' => 'pdf',
+                'value' => function ($data) {
+                    return '<a href="'.$data['pdf'].'">'.$data['pdf'].'</a>';
+                },
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

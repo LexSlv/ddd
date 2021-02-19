@@ -70,7 +70,7 @@ class SscController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $model->pdf = UploadedFile::getInstance($model, 'pdf');
             $model->pdf->saveAs('uploads/pdf/' . time() . '.' . $model->pdf->extension);
-            $model->pdf = '/web/uploads/pdf/'. time() . '.' . $model->pdf->extension;
+            $model->pdf = '/uploads/pdf/'. time() . '.' . $model->pdf->extension;
             $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -98,15 +98,12 @@ class SscController extends Controller
 
             $model->pdf = UploadedFile::getInstance($model, 'pdf');
             $model->pdf->saveAs('uploads/pdf/' . time() . '.' . $model->pdf->extension);
-            $model->pdf = '/web/uploads/pdf/'. time() . '.' . $model->pdf->extension;
+            $model->pdf = '/uploads/pdf/'. time() . '.' . $model->pdf->extension;
             $model->save();
 
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
-        return $this->render('update', [
-            'model' => $model,
-        ]);
     }
 
     /**

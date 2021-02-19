@@ -15,6 +15,7 @@
                     ['label' => 'Slider-1', 'icon' => 'fas fa-address-card', 'url' => ['/admin/slider1']],
                     ['label' => 'Slider-2', 'icon' => 'fas fa-address-card', 'url' => ['/admin/slider2']],
                     ['label' => 'Таблица с pdf - 1', 'icon' => 'fas fa-address-card', 'url' => ['/admin/ssc']],
+                    ['label' => 'Таблица с pdf - 2', 'icon' => 'fas fa-address-card', 'url' => ['/admin/archive']],
 
 
                     ['label' => 'Sign up', 'icon' => 'fas fa-address-card', 'url' => ['/admin/signup']],
