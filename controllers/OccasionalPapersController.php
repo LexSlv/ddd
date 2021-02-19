@@ -25,7 +25,6 @@ class OccasionalPapersController extends \yii\web\Controller
             'pages' => $PagesArr
         ]);
 
-        return $this->render('index');
     }
 
 }
