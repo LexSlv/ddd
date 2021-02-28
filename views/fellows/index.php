@@ -1,8 +1,6 @@
 <?php
 /* @var $this yii\web\View */
-//echo "<pre>";
-//print_r($s_fellows);
-//die;
+$lang = Yii::$app->language;
 ?>
 <div id="app"></div>
 <main>
@@ -58,10 +56,10 @@
 			          	
 			          	<div class="slide-fellow-text">
 				          	<span class="slide-fellow-title">
-				          		<strong><?= $s_fellow['name'] ?>,</strong> <?= $s_fellow['whois'] ?>
+				          		<strong><?= $s_fellow['name_'.$lang] ?>,</strong> <?= $s_fellow['whois_'.$lang] ?>
 							</span>
 				          	<span class="slide-fellow-tags">
-				          		<strong>Research interests:</strong> <?= $s_fellow['research_interests'] ?>
+				          		<strong>Research interests:</strong> <?= $s_fellow['research_interests_'.$lang] ?>
 							</span>
 							<div class="action-fellow-block">
 					          	<span class="slide-fellow-date">
@@ -87,10 +85,13 @@
 			          	
 			          	<div class="slide-fellow-text">
 				          	<span class="slide-fellow-title">
-				          		<strong><?= $j_fellow['name'] ?>,</strong> <?= $j_fellow['whois'] ?>
+				          		<strong><?= $j_fellow['name_'.$lang] ?>,</strong> <?= $j_fellow['whois_'.$lang] ?>
 							</span>
 				          	<span class="slide-fellow-tags">
-				          		<strong>Research interests:</strong> <?= $j_fellow['research_interests'] ?>
+				          		<strong>Research interests:</strong> <?= $j_fellow['research_interests_'.$lang] ?>
+							</span>
+							 <span class="slide-fellow-tags">
+				          		<?= $j_fellow['university_'.$lang] ?>
 							</span>
 							<div class="action-fellow-block">
 					          	<span class="slide-fellow-date">

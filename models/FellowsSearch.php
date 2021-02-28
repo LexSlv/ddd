@@ -17,8 +17,8 @@ class FellowsSearch extends Fellows
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['name', 'whois', 'research_interests', 'fellowship_period', 'email', 'photo_url'], 'safe'],
+            [['id', 'senior'], 'integer'],
+            [['name_en', 'whois_en', 'research_interests_en', 'university_en', 'name_ru', 'whois_ru', 'research_interests_ru', 'university_ru', 'email', 'photo_url', 'fellowship_period'], 'safe'],
         ];
     }
 
@@ -59,14 +59,20 @@ class FellowsSearch extends Fellows
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'senior' => $this->senior,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'whois', $this->whois])
-            ->andFilterWhere(['like', 'research_interests', $this->research_interests])
-            ->andFilterWhere(['like', 'fellowship_period', $this->fellowship_period])
+        $query->andFilterWhere(['like', 'name_en', $this->name_en])
+            ->andFilterWhere(['like', 'whois_en', $this->whois_en])
+            ->andFilterWhere(['like', 'research_interests_en', $this->research_interests_en])
+            ->andFilterWhere(['like', 'university_en', $this->university_en])
+            ->andFilterWhere(['like', 'name_ru', $this->name_ru])
+            ->andFilterWhere(['like', 'whois_ru', $this->whois_ru])
+            ->andFilterWhere(['like', 'research_interests_ru', $this->research_interests_ru])
+            ->andFilterWhere(['like', 'university_ru', $this->university_ru])
             ->andFilterWhere(['like', 'email', $this->email])
-            ->andFilterWhere(['like', 'photo_url', $this->photo_url]);
+            ->andFilterWhere(['like', 'photo_url', $this->photo_url])
+            ->andFilterWhere(['like', 'fellowship_period', $this->fellowship_period]);
 
         return $dataProvider;
     }

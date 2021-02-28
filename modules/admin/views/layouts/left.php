@@ -14,8 +14,8 @@
                     ['label' => 'Fellows', 'icon' => 'fas fa-address-card', 'url' => ['/admin/fellows']],
                     ['label' => 'Slider-1', 'icon' => 'fas fa-address-card', 'url' => ['/admin/slider1']],
                     ['label' => 'Slider-2', 'icon' => 'fas fa-address-card', 'url' => ['/admin/slider2']],
-                    ['label' => 'Таблица с pdf - 1', 'icon' => 'fas fa-address-card', 'url' => ['/admin/ssc']],
-                    ['label' => 'Таблица с pdf - 2', 'icon' => 'fas fa-address-card', 'url' => ['/admin/archive']],
+                    ['label' => 'Архив Social Science Colloquium', 'icon' => 'fas fa-address-card', 'url' => ['/admin/ssc']],
+                    ['label' => 'Архив Непереодических изданий', 'icon' => 'fas fa-address-card', 'url' => ['/admin/archive']],
 
                     ['label' => 'Документы', 'icon' => 'fas fa-address-card', 'url' => ['/admin/docs']],
 

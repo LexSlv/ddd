@@ -17,17 +17,29 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'name') ?>
+    <?= $form->field($model, 'name_en') ?>
 
-    <?= $form->field($model, 'whois') ?>
+    <?= $form->field($model, 'whois_en') ?>
 
-    <?= $form->field($model, 'research_interests') ?>
+    <?= $form->field($model, 'research_interests_en') ?>
 
-    <?= $form->field($model, 'fellowship_period') ?>
+    <?= $form->field($model, 'university_en') ?>
+
+    <?php // echo $form->field($model, 'name_ru') ?>
+
+    <?php // echo $form->field($model, 'whois_ru') ?>
+
+    <?php // echo $form->field($model, 'research_interests_ru') ?>
+
+    <?php // echo $form->field($model, 'university_ru') ?>
 
     <?php // echo $form->field($model, 'email') ?>
 
     <?php // echo $form->field($model, 'photo_url') ?>
+
+    <?php // echo $form->field($model, 'fellowship_period') ?>
+
+    <?php // echo $form->field($model, 'senior') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
