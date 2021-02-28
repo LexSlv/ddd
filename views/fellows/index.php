@@ -4,14 +4,15 @@
 //print_r($s_fellows);
 //die;
 ?>
-<main id="app">
+<div id="app"></div>
+<main>
     <div class="ribbon blue-ribbon top-page-ribbon white">
         <section>
             <h2><?= $text_blocks['DKU_fellows'] ?></h2>
         </section>
     </div>
     <div class="ribbon yellow-ribbon middle-ribbon"></div>
-    <section class="main-section">
+    <section id="fellows" class="main-section">
         <div class="page-box shadow">
             <div class="page-box-text">
             <?= $pages['fellows'] ?>
@@ -28,7 +29,7 @@
                 <carousel :data="juniorSlider" :controls="true"></carousel>
             </div>
             <div class="page-box-block slider-block shadow">
-                <carousel :data="sliders" :controls="true"></carousel>
+                <carousel :data="picSliders" :controls="true"></carousel>
             </div>
         </div>
 
@@ -38,25 +39,10 @@
 </main>
 
 
-<script src="/js/vue.js"></script>
 <script src="/js/vue-carousel.min.js"></script>
 <script>
-    const mob = new Vue({
-        el: '#header',
-        data () {
-            return {
-                mobileMenu: false
-            }
-        },
-        methods:{
-            goTo(val) {
-                if (val === 'dkuen') window.location.href = 'https://dku.kz/en/'
-                if (val === 'index') window.location.href = 'index.html'
-            }
-        }
-    })
-    const vm = new Vue({
-        el: '#app',
+    const fellows = new Vue({
+        el: '#fellows',
         data () {
             return {
             }
@@ -119,13 +105,11 @@
 					<?php endforeach; ?>
                 ]
             },
-            sliders() {
+            picSliders() {
                 return [
                     <?php foreach ($slider as $slide): ?>
                     `<div class="slide-box">
-			          	<div class="slide-pic">
-			          		<img src="<?= $slide['image_url']?>" title="fun" />
-			          	</div>
+			          	<div class="slide-pic" style="background-image: url('<?= $slide['image_url']?>')"></div>
 					</div>`,
                     <?php endforeach; ?>
                 ]

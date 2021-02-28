@@ -37,32 +37,6 @@
         </div>
     </section>
 </main>
-
-
-<script src="/js/vue.js"></script>
-<script>
-    const mob = new Vue({
-        el: '#header',
-        data () {
-            return {
-                mobileMenu: false
-            }
-        },
-        methods:{
-            goTo(val) {
-                if (val === 'dkuen') window.location.href = 'https://dku.kz/en/'
-                if (val === 'index') window.location.href = 'index.html'
-            }
-        }
-    })
-    const vm = new Vue({
-        el: '#app',
-        data () {
-            return {
-            }
-        }
-    })
-</script>
 <script src="/js/loader.js"></script>
 <script type="text/javascript">
     var map;

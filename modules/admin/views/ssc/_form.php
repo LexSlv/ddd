@@ -14,7 +14,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'year')->textInput() ?>
 
-    <?= $form->field($model, 'semester')->textInput() ?>
+    <?= $form->field($model, 'semester_en')->textInput() ?>
+
+    <?= $form->field($model, 'semester_ru')->textInput() ?>
 
     <?= $form->field($model, 'date_of_publication')->textInput([
         'maxlength' => true,

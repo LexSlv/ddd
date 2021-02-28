@@ -18,7 +18,7 @@ class ArchiveSearch extends Archive
     {
         return [
             [['id'], 'integer'],
-            [['title', 'sub_title', 'author', 'date_of_publication'], 'safe'],
+            [['title_en', 'sub_title_en', 'author_en', 'date_of_publication'], 'safe'],
         ];
     }
 
@@ -62,9 +62,9 @@ class ArchiveSearch extends Archive
             'date_of_publication' => $this->date_of_publication,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'sub_title', $this->sub_title])
-            ->andFilterWhere(['like', 'author', $this->author]);
+        $query->andFilterWhere(['like', 'title_en', $this->title_en])
+            ->andFilterWhere(['like', 'sub_title_en', $this->sub_title_en])
+            ->andFilterWhere(['like', 'author_en', $this->author_en]);
 
         return $dataProvider;
     }

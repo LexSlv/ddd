@@ -34,9 +34,9 @@ class Events extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title_ru', 'subtitle_ru', 'title_en', 'subtitle_en', 'event_date', 'author', 'forthcoming', 'most_recent', 'show_in_slider'], 'required'],
+            [['title_ru', 'subtitle_ru', 'title_en', 'subtitle_en', 'event_date', 'author_en', 'author_ru', 'description_en', 'description_ru', 'forthcoming', 'most_recent', 'show_in_slider'], 'required'],
             [['forthcoming', 'most_recent', 'show_in_slider'], 'integer'],
-            [['title_ru', 'subtitle_ru', 'title_en', 'subtitle_en', 'event_date', 'author'], 'string', 'max' => 255],
+            [['title_ru', 'subtitle_ru', 'title_en', 'subtitle_en', 'event_date'], 'string', 'max' => 255],
         ];
     }
 
@@ -52,7 +52,10 @@ class Events extends \yii\db\ActiveRecord
             'title_en' => 'Title En',
             'subtitle_en' => 'Subtitle En',
             'event_date' => 'Event Date',
-            'author' => 'Author',
+            'author_en' => 'Author EN',
+            'author_ru' => 'Author RU',
+            'description_en' => 'Description EN',
+            'description_ru' => 'Description RU',
             'forthcoming' => 'Forthcoming',
             'most_recent' => 'Most Recent',
             'show_in_slider' => 'Show In Slider',

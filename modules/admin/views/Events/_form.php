@@ -13,13 +13,14 @@ use kartik\date\DatePicker;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'title_ru')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'subtitle_ru')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'title_en')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'title_ru')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'subtitle_en')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'subtitle_ru')->textInput(['maxlength' => true]) ?>
 
 
     <?= $form->field($model, 'event_date')->textInput([
@@ -43,9 +44,14 @@ use kartik\date\DatePicker;
 
     ?>
     -->
-    <hr>
 
-    <?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'author_en')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'author_ru')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'description_en')->textarea() ?>
+
+    <?= $form->field($model, 'description_ru')->textarea() ?>
 
     <?= $form->field($model, 'forthcoming')->checkbox() ?>
 

@@ -29,9 +29,9 @@ class Ssc extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['year', 'semester', 'date_of_publication', 'pdf'], 'required'],
+            [['year', 'semester_ru', 'semester_en', 'date_of_publication', 'pdf'], 'required'],
             [['year'], 'integer'],
-            [['semester'], 'string'],
+            [['semester_ru', 'semester_en'], 'string'],
             [['date_of_publication'], 'safe'],
             [['pdf'], 'file']
         ];
@@ -45,7 +45,8 @@ class Ssc extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'year' => 'Year',
-            'semester' => 'Semester',
+            'semester_en' => 'Semester EN',
+            'semester_ru' => 'Semester RU',
             'date_of_publication' => 'Date Of Publication',
             'pdf' => 'Pdf',
         ];

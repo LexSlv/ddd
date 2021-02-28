@@ -29,10 +29,10 @@ class Archive extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'sub_title', 'author', 'date_of_publication'], 'required'],
-            [['title'], 'string'],
+            [['title_en', 'sub_title_en','title_ru', 'sub_title_ru', 'author_ru', 'author_en', 'date_of_publication'], 'required'],
+            [['title_en', 'sub_title_en','title_ru', 'sub_title_ru', 'author_ru', 'author_en',], 'string'],
             [['date_of_publication'], 'safe'],
-            [['sub_title', 'title','author'], 'string', 'max' => 500],
+            [['title_en', 'sub_title_en','title_ru', 'sub_title_ru', 'author_ru', 'author_en'], 'string', 'max' => 500],
             [['pdf'], 'file']
         ];
     }
@@ -44,9 +44,12 @@ class Archive extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'sub_title' => 'Sub Title',
-            'author' => 'Author',
+            'title_ru' => 'Title RU',
+            'title_en' => 'Title EN',
+            'sub_title_ru' => 'Sub Title RU',
+            'sub_title_en' => 'Sub Title EN',
+            'author_en' => 'Author EN',
+            'author_ru' => 'Author RU',
             'date_of_publication' => 'Date Of Publication',
             'pdf' => 'pdf'
         ];

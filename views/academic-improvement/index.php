@@ -3,7 +3,6 @@
 $lang = Yii::$app->language;
 ?>
 
-
 <main id="app">
     <div class="ribbon red-ribbon top-page-ribbon white">
         <section>
@@ -18,50 +17,19 @@ $lang = Yii::$app->language;
         <div class="page-block shadow">
             <h3><?= $text_blocks['forthcoming_events'] ?></h3>
             <div class="page-block-events">
-                <?php foreach ($f_events as $f_event):  ?>
-                <div class="page-block-event">
+                <?php foreach ($f_events as $key => $f_event):  ?>
+                <div class="page-block-event" :key="<?= $key ?>" @click="showDescription<?= $key ?> = !showDescription<?= $key ?>">
                     <div class="event-title"><strong><?= $f_event['title_'.$lang] ?></strong><br /></div>
-                    <div class="event-description"><?= $f_event['subtitle_'.$lang] ?></div>
+                    <div class="event-red-subtitle"><?= $f_event['subtitle_'.$lang] ?></div>
+
+                    <div v-show="showDescription<?= $key ?>" class="event-description"><?= $f_event['description_'.$lang] ?> </div>
 
                     <div class="flex event-details">
-                        <div class="event-author"><?= $f_event['author'] ?></div>
+                        <div class="event-author"><?= $f_event['author_'.$lang] ?></div>
                         <div class="event-date"><?= $f_event['event_date'] ?></div>
                     </div>
                 </div>
                 <?php endforeach; ?>
-                <!-- 			      	<div class="page-block-event">
-                                          <div class="event-title"><strong>Writing Policy Papers</strong>, Webinar (in cooperation with the Friedrich Ebert Foundation Kazakhstan) </div>
-
-                                          <div class="event-description">Webinar</div>
-
-                                          <div class="flex event-details">
-                                              <div class="event-author">Edward Lemon</div>
-                                              <div class="event-date">27 November and 05 December 2020</div>
-                                          </div>
-                                      </div>
-
-                                      <div class="page-block-event">
-                                          <div class="event-title"><strong>Project proposal writing</strong>, Part 1
-                                        (russ «Написание проектной заявки»)</div>
-
-                                          <div class="event-description">Webinar</div>
-
-                                          <div class="flex event-details">
-                                              <div class="event-author">Guljamal Issaeva</div>
-                                              <div class="event-date">09 September 2020</div>
-                                          </div>
-                                      </div>
-
-                                      <div class="page-block-event">
-                                          <div class="event-title"><strong>Basics of Academic Writing</strong>, Webinar</div>
-
-                                          <div class="event-description">Webinar</div>
-
-                                          <div class="flex event-details">
-                                              <div class="event-author">Guljamal Issaeva</div>
-                                              <div class="event-date">February 2021 (Tentative)</div>
-                                          </div>
-                                      </div> -->
             </div>
         </div>
         <div class="most-recent shadow">
@@ -71,24 +39,15 @@ $lang = Yii::$app->language;
                 <div>
                     <div class="event-title"><strong><?= $m_event['title_'.$lang] ?>,</strong></div>
 
-                    <div class="event-description"><?= $m_event['subtitle_'.$lang] ?> </div>
+                    <div class="event-red-subtitle"><?= $m_event['subtitle_'.$lang] ?> </div>
 
                     <div class="flex event-details">
-                        <div class="event-author"><?= $m_event['author'] ?></div>
+                        <div class="event-author"><?= $m_event['author_'.$lang] ?></div>
                         <div class="event-date"><?= $m_event['event_date'] ?></div>
                     </div>
                 </div>
                 <?php endforeach; ?>
-                <!-- 		    		<div>
-                                          <div class="event-title"><strong>Basics of Academic Writing</strong>, Webinar</div>
 
-                                          <div class="event-description">Talk for MA Students of the Ecosystems, Society and Economics of the Region of Aral (ESERA) Project</div>
-
-                                          <div class="flex event-details">
-                                              <div class="event-author">Edward Lemon</div>
-                                              <div class="event-date">27 November and 05 December 2020</div>
-                                          </div>
-                                    </div> -->
             </div>
             <!-- 		    	<div class="most-recent-past-events">
                                 You can view all past events in the <strong>Past Events</strong> section

@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'year',
-            'semester:ntext',
+            'semester_en',
             'date_of_publication',
             'pdf',
         ],

@@ -18,7 +18,7 @@ class SscSearch extends Ssc
     {
         return [
             [['id', 'year', 'pdf'], 'integer'],
-            [['semester', 'date_of_publication'], 'safe'],
+            [['semester_ru', 'semester_en', 'date_of_publication'], 'safe'],
         ];
     }
 
@@ -64,7 +64,7 @@ class SscSearch extends Ssc
             'pdf' => $this->pdf,
         ]);
 
-        $query->andFilterWhere(['like', 'semester', $this->semester]);
+        $query->andFilterWhere(['like', 'semester_en', $this->semester_en]);
 
         return $dataProvider;
     }

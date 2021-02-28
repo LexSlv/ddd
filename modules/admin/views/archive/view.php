@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Archive */
 
-$this->title = $model->title;
+$this->title = $model->title_ru;
 $this->params['breadcrumbs'][] = ['label' => 'Archives', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
@@ -30,9 +30,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'title:ntext',
-            'sub_title',
-            'author',
+            'title_en',
+            'sub_title_en',
+            'author_en',
             'date_of_publication',
         ],
     ]) ?>

@@ -42,8 +42,7 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php $this->registerCsrfMetaTags() ?>
     <!-- Mobile Specific Meta -->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
-    <meta name="viewport" content="width=400px, initial-scale=1">
+    <meta name="viewport" content="width=400, initial-scale=1">
 
     <!-- Favicon-->
     <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
@@ -65,12 +64,11 @@ AppAsset::register($this);
     <!--
     CSS
     ============================================= -->
-    <script src="js/vue.js"></script>
-    <link rel="stylesheet" href="/css/style.css" /
+    <script src="/js/vue.js"></script>
+    <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
 <?php $this->beginBody() ?>
-<body>
 <header id="header">
     <section>
         <div class="header">
@@ -121,8 +119,8 @@ AppAsset::register($this);
                         <img src="/img/search.svg" alt="Поиск" title="Поиск">
                     </div>
                     <div class="lang">
-                        <a href="/en">EN</a>
-                        <a href="/ru">RU</a>
+                        <a :class="{'active-lang' : pathname.includes('/en')}" href="/en">EN</a>&nbsp;
+                        <a :class="{'active-lang' : pathname.includes('/ru')}" href="/ru">RU</a>
                     </div>
                 </div>
             </nav>
@@ -174,33 +172,33 @@ AppAsset::register($this);
         </section>
     </div>
     <?php endif; ?>
-
-    <?= $footer ?>
+    <?= $blocks['footer'] ?>
 
 
 </footer>
 
 <?php $this->endBody() ?>
+
 </body>
 
-
 <script src="/js/vue-carousel.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+<script src="/js/axios.min.js"></script>
 <script>
     const mob = new Vue({
         el: '#header',
         data () {
             return {
-                mobileMenu: false
+                mobileMenu: false,
+                pathname: window.location.pathname
             }
         },
         methods:{
             goTo(val) {
                 if (val === 'dkuen') window.location.href = 'https://dku.kz/en/'
-                if (val === 'index') window.location.href = 'index.html'
+                if (val === 'index') window.location.href = '/'
             }
         }
-    })
+    });
     const footer = new Vue({
         el: '#footer',
         data () {
@@ -210,7 +208,7 @@ AppAsset::register($this);
         },
         methods:{
             goToContacts() {
-                window.location.href = 'contacts.html'
+                window.location.href = 'contacts'
             },
             sendData() {
                 if (this.mailbox) {
@@ -236,11 +234,21 @@ AppAsset::register($this);
                 }
             }
         }
-    })
+    });
     const vm = new Vue({
         el: '#app',
         data () {
             return {
+                showDescription0: false,
+                showDescription1: false,
+                showDescription2: false,
+                showDescription3: false,
+                showDescription4: false,
+                showDescription5: false,
+                showDescription6: false,
+                showDescription7: false,
+                showDescription8: false,
+                showDescription9: false,
             }
         },
         computed: {
@@ -252,10 +260,10 @@ AppAsset::register($this);
 								<div class="event-title">
 									<strong><?= $s_event['title_'.$lang] ?></strong><br>
 								</div>
-								<div class="event-description"><?= $s_event['subtitle_'.$lang] ?></div>
+								<div class="event-subtitle"><?= $s_event['subtitle_'.$lang] ?></div>
 
 								<div class="flex event-details">
-									<div class="event-author"><?= $s_event['author'] ?></div>
+									<div class="event-author"><?= $s_event['author_'.$lang] ?></div>
 									<div class="event-date"><?= $s_event['event_date'] ?></div>
 								</div>
 							</a>
@@ -272,24 +280,10 @@ AppAsset::register($this);
                 this.$refs.switchDemo.next()
             },
             goToAI() {
-                window.location.href = 'academic_improvement.html'
+                window.location.href = 'academic-improvement'
             }
         }
     })
 </script>
-<script src="js/loader.js"></script>
-<script type="text/javascript">
-    var map;
-
-    DG.then(function () {
-        map = DG.map('map', {
-            center: [43.244172, 76.947719],
-            zoom: 18
-        });
-
-        DG.marker([43.244172, 76.947719]).addTo(map).bindPopup('Centre for Research & Graduate Education');
-    });
-</script>
-
 </html>
 <?php $this->endPage() ?>

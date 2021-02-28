@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'title_en',
             'subtitle_en',
             'event_date',
-            'author',
+            'author_en',
             'forthcoming',
             'most_recent',
             'show_in_slider',

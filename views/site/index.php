@@ -18,24 +18,23 @@
             </div>
             <div class="banner-block information-block">
                 <?= $text_blocks['information_block_main'] ?>
-                <!-- 		          	<div class="banner-pic">
-                                          <img src="img/magazin.png" title="magazin" />
-                                      </div>
-                                      <div class="banner-text">
-                                          <span class="banner-title">
-                                              Peace in Central Asia in the Early 21. Century
-                                        </span>
-                                          <span class="banner-subtitle">
-                                              Conditions for Success in an Era of Change
-                                        </span>
-                                         <span class="banner-author">
-                                                  Peter Smith
-                                        </span>
-                                         <a href="" class="banner-link">
-                                                  Read more...
-                                        </a>
-                                      </div> -->
             </div>
         </div>
     </section>
 </main>
+
+<script src="/js/vue.js"></script>
+<script src="/js/vue-carousel.min.js"></script>
+<script src="/js/loader.js"></script>
+<script type="text/javascript">
+    var map;
+
+    DG.then(function () {
+        map = DG.map('map', {
+            center: [43.244172, 76.947719],
+            zoom: 18
+        });
+
+        DG.marker([43.244172, 76.947719]).addTo(map).bindPopup('Centre for Research & Graduate Education');
+    });
+</script>

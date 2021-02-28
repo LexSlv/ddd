@@ -12,11 +12,17 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'title')->textInput(['rows' => 6]) ?>
+    <?= $form->field($model, 'title_en')->textInput(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'sub_title')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'title_ru')->textInput(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'sub_title_en')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'sub_title_ru')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'author_en')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'author_ru')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'date_of_publication')->textInput([
         'maxlength' => true,

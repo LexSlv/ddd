@@ -27,9 +27,8 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'title:ntext',
-            'sub_title',
-            'author',
+            'title_en',
+            'author_en',
             'date_of_publication',
             [
                 'attribute' => 'pdf',

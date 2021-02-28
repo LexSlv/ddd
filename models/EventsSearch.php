@@ -18,7 +18,7 @@ class EventsSearch extends Events
     {
         return [
             [['id', 'forthcoming', 'most_recent', 'show_in_slider'], 'integer'],
-            [['title_ru', 'subtitle_ru', 'title_en', 'subtitle_en', 'event_date', 'author'], 'safe'],
+            [['title_ru', 'subtitle_ru', 'title_en', 'subtitle_en', 'event_date', 'author_en', 'author_ru', 'description_en', 'description_ru' ], 'safe'],
         ];
     }
 
@@ -68,8 +68,7 @@ class EventsSearch extends Events
             ->andFilterWhere(['like', 'subtitle_ru', $this->subtitle_ru])
             ->andFilterWhere(['like', 'title_en', $this->title_en])
             ->andFilterWhere(['like', 'subtitle_en', $this->subtitle_en])
-            ->andFilterWhere(['like', 'event_date', $this->event_date])
-            ->andFilterWhere(['like', 'author', $this->author]);
+            ->andFilterWhere(['like', 'event_date', $this->event_date]);
 
         return $dataProvider;
     }

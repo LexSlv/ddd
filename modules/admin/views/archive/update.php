@@ -5,9 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Archive */
 
-$this->title = 'Update Archive: ' . $model->title;
+$this->title = 'Update Archive: ' . $model->title_en;
 $this->params['breadcrumbs'][] = ['label' => 'Archives', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = ['label' => $model->title_en, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="archive-update">

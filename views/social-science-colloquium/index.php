@@ -1,5 +1,6 @@
 <?php
 /* @var $this yii\web\View */
+$lang = Yii::$app->language;
 ?>
 <main id="app">
     <div class="ribbon yellow-ribbon top-page-ribbon black">
@@ -33,7 +34,7 @@
                 <?php foreach ($pdfs as $pdf): ?>
                 <tr>
                     <td><?= $pdf['year'] ?></td>
-                    <td><?= $pdf['semester'] ?></td>
+                    <td><?= $pdf['semester_'.$lang] ?></td>
                     <td><?= $pdf['date_of_publication'] ?></td>
                     <td><a target="_blank" href="<?= $pdf['pdf'] ?>"><span>Read online</span> / Download</a></td>
                 </tr>
@@ -43,51 +44,3 @@
     </section>
     <div class="ribbon red-ribbon second-ribbon"></div>
 </main>
-
-
-<script src="/js/vue.js"></script>
-<script src="/js/vue-carousel.min.js"></script>
-<script>
-    const mob = new Vue({
-        el: '#header',
-        data () {
-            return {
-                mobileMenu: false
-            }
-        },
-        methods:{
-            goTo(val) {
-                if (val === 'dkuen') window.location.href = 'https://dku.kz/en/'
-                if (val === 'index') window.location.href = 'index.html'
-            }
-        }
-    })
-    const vm = new Vue({
-        el: '#app',
-        data () {
-            return {
-            }
-        },
-        computed: {
-            sliders() {
-                return [
-                    <?php foreach ($slider as $slide): ?>
-                    `<div class="slide-box">
-			          	<div class="slide-pic">
-			          		<img src="<?= $slide['image_url']?>" title="fun" />
-			          	</div>
-					</div>`,
-                    <?php endforeach; ?>
-                ]
-            }
-        },
-        methods:{
-            prev(){
-                this.$refs.switchDemo.prev()
-            },
-            next(){
-                this.$refs.switchDemo.next()
-            }
-        }
-    })
-</script>
