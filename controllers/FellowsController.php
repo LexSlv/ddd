@@ -37,4 +37,23 @@ class FellowsController extends \yii\web\Controller
         ]);
     }
 
+    public function actionAll() {
+        $blocksModel = Blocks::find()->all();
+
+        $s_fellows = Fellows::find()->where(['senior' => 1])->all();
+        $j_fellows = Fellows::find()->where(['senior' => 0])->all();
+
+        $lang = Yii::$app->language;
+        foreach ($blocksModel as $block) {
+            $blocksArr[$block['key']] = $block['text_block_'.$lang];
+        }
+
+
+        return $this->render('all', [
+            'text_blocks' => $blocksArr,
+            's_fellows' => $s_fellows,
+            'j_fellows' => $j_fellows,
+        ]);
+    }
+
 }

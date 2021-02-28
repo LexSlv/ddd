@@ -1,3 +1,7 @@
+<?php
+/* @var $this yii\web\View */
+$lang = Yii::$app->language;
+?>
 <main id="app">
     <div class="ribbon red-ribbon top-page-ribbon white">
         <section>
@@ -24,14 +28,14 @@
                     <th><?= $text_blocks['Date_of_publication'] ?></th>
                     <th><?= $text_blocks['Action'] ?></th>
                 </tr>
+                <?php foreach ($pdfs as $pdf): ?>
                 <tr>
-                    <?php foreach ($pdfs as $pdf): ?>
-                    <td style="text-align: left;"><strong><?= $pdf['title'] ?></strong><br /><small><?= $pdf['sub_title'] ?></small></td>
-                    <td><strong><?= $pdf['author'] ?></strong></td>
+                    <td style="text-align: left;"><strong><?= $pdf['title_'.$lang] ?></strong><br /><small><?= $pdf['sub_title_'.$lang] ?></small></td>
+                    <td><strong><?= $pdf['author_'.$lang] ?></strong></td>
                     <td><?= $pdf['date_of_publication'] ?></td>
                     <td><a target="_blank" href="<?= $pdf['pdf'] ?>"><span>Read online</span> / Download</a></td>
-                    <?php endforeach; ?>
                 </tr>
+                <?php endforeach; ?>
             </table>
         </div>
     </section>
