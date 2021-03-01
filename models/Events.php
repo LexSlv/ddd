@@ -35,7 +35,7 @@ class Events extends \yii\db\ActiveRecord
     {
         return [
             [['title_ru', 'subtitle_ru', 'title_en', 'subtitle_en', 'event_date', 'author_en', 'author_ru', 'description_en', 'description_ru', 'forthcoming', 'most_recent', 'show_in_slider'], 'required'],
-            [['forthcoming', 'most_recent', 'show_in_slider'], 'integer'],
+            [['forthcoming', 'most_recent', 'show_in_slider', 'show_in_slider_col'], 'integer'],
             [['title_ru', 'subtitle_ru', 'title_en', 'subtitle_en', 'event_date'], 'string', 'max' => 255],
         ];
     }
@@ -58,7 +58,8 @@ class Events extends \yii\db\ActiveRecord
             'description_ru' => 'Description RU',
             'forthcoming' => 'Forthcoming',
             'most_recent' => 'Most Recent',
-            'show_in_slider' => 'Show In Slider',
+            'show_in_slider' => 'Slider Main',
+            'show_in_slider_col' => 'Slider colloquium',
         ];
     }
 }

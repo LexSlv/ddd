@@ -16,6 +16,8 @@ use app\models\Events;
 
 
 $s_events = Events::find()->where(['show_in_slider' => 1])->all();
+$c_events = Events::find()->where(['show_in_slider_col' => 1])->all();
+
 $lang = Yii::$app->language;
 
 $text_blocks = Blocks::find()->all();

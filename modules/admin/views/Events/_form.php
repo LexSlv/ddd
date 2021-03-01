@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\date\DatePicker;
+use dosamigos\tinymce\TinyMce;
+
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Events */
@@ -49,15 +51,53 @@ use kartik\date\DatePicker;
 
     <?= $form->field($model, 'author_ru')->textInput(['maxlength' => true]) ?>
 
+    <!--
     <?= $form->field($model, 'description_en')->textarea() ?>
 
     <?= $form->field($model, 'description_ru')->textarea() ?>
+    -->
+
+    <?= $form->field($model, 'description_en')->widget(TinyMce::className(), [
+        'options' => ['rows' => 20],
+        'language' => 'ru',
+        'clientOptions' => [
+            'plugins' => [
+                "advlist autolink lists link charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table contextmenu paste",
+                "image"
+
+            ],
+            'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+        ]
+    ]);?>
+
+
+    <?= $form->field($model, 'description_ru')->widget(TinyMce::className(), [
+        'options' => ['rows' => 20],
+        'language' => 'ru',
+        'clientOptions' => [
+            'plugins' => [
+                "advlist autolink lists link charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table contextmenu paste",
+                "image"
+
+            ],
+            'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+        ]
+    ]);?>
+
+
 
     <?= $form->field($model, 'forthcoming')->checkbox() ?>
 
     <?= $form->field($model, 'most_recent')->checkbox() ?>
 
     <?= $form->field($model, 'show_in_slider')->checkbox() ?>
+
+    <?= $form->field($model, 'show_in_slider_col')->checkbox() ?>
+
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
